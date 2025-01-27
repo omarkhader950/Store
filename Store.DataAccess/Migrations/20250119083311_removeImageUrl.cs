@@ -5,10 +5,18 @@
 namespace Store.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class addImageUrlToProduct : Migration
+    public partial class removeImageUrl : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "ImageUrl",
+                table: "Products");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "ImageUrl",
@@ -58,14 +66,6 @@ namespace Store.DataAccess.Migrations
                 keyValue: 6,
                 column: "ImageUrl",
                 value: "");
-        }
-
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropColumn(
-                name: "ImageUrl",
-                table: "Products");
         }
     }
 }

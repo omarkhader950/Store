@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
+
+
+
+
 namespace Store.Models
 {
     public class Product
@@ -23,7 +27,7 @@ namespace Store.Models
         [Required]
         public string Author { get; set; }
 
-        [Required]
+        [Required ]
         [Display(Name ="List Price")]
         [Range(1,1000)]
         public double ListPrice { get; set; }
@@ -50,8 +54,11 @@ namespace Store.Models
         [ForeignKey("CategoryId")]
         [ValidateNever]
         public Category Category { get; set; }
-        [ValidateNever]
 
-        public string ImageUrl { get; set; }
+        [ValidateNever]
+        public List<ProductImage> ProductImages { get; set; }
+
+
+
     }
 }
